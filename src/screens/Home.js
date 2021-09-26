@@ -3,16 +3,13 @@ import { StyleSheet, Text, View,ScrollView,TextInput,FlatList,ActivityIndicator,
 import {Ionicons} from '@expo/vector-icons'
 import HomeCard from '../components/HomeCard'
 import Constant from 'expo-constants'
+import {useSelector,useDispatch} from 'react-redux'
 import { useNavigation } from '@react-navigation/native';
 
 
 const Home = (navigation)=>{
     const [value,setValue] = useState("")
     const [HomeCardData,setHomeCard] = useState([])
-    // const dispatch = useDispatch()
-    // const HomeCardData = useSelector(state=>{
-    //     return state.cardData
-    // })
     const [loading,setLoading] = useState(false)
     const fetchData = () =>{
         setLoading(true)
@@ -33,7 +30,7 @@ const Home = (navigation)=>{
               flexDirection:"row",
               justifyContent:"space-around",
               elevation:5,
-              backgroundColor:"orange"
+              backgroundColor:"#F9a943"
         
           }}>
              
@@ -63,11 +60,11 @@ const Home = (navigation)=>{
                 ansCount={item.answer_count}
                 votes={item.score}
                 name={item.owner.display_name}
-                profile={item.owner.link}
                 time={item.creation_date}
+                quesid={item.question_id}
                />
            }}
-           keyExtractor={item=>item.question_id}
+           keyExtractor={ (item, index) => index.toString() }
           /> 
       </View>
   )
