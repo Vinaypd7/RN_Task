@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, Text, View, ScrollView, TextInput, FlatList, ActivityIndicator, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
 import QuesCard from '../components/QuesCard'
 import Constant from 'expo-constants'
 import { useNavigation } from '@react-navigation/native';
 import AnsCard from '../components/AnsCard';
-import { useCallback } from 'react';
 
 const AnsScreen = ({ route,navigation}) => {
     const { quesid } = route.params
@@ -82,7 +81,7 @@ const AnsScreen = ({ route,navigation}) => {
                 }}
              >Answer Section</Text>
              </View>
-
+                <ScrollView>
                 <FlatList
                     data={QuesCardData}
                     renderItem={ renderItem1 }
@@ -94,7 +93,7 @@ const AnsScreen = ({ route,navigation}) => {
                     renderItem={ renderItem2 }
                     keyExtractor={keyExtractor}
                 />
-            
+            </ScrollView>
         </View>
     )
     

@@ -6,8 +6,7 @@ import moment from 'moment';
 
 const styles = StyleSheet.create({
     code: {
-        fontFamily: 'Courier',
-        fontWeight: '300',
+        fontWeight: '500',
         color: '#FF3366',
         backgroundColor: '#DDDDDD'
     }
